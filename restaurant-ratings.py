@@ -3,7 +3,7 @@
 def restaurant_ratings(path):
     """Reads data file and displays scores.  
 
-    Returns list of restaurants and ratings in albathetical order.
+    Prints list of restaurants and ratings in albathetical order.
     """
     score_data = open(path)
     restaurant_ratings_dicts = {}
@@ -14,14 +14,12 @@ def restaurant_ratings(path):
         restaurant_name, rating = restaurant_data
         restaurant_ratings_dicts[restaurant_name] = rating
 
-    sorted_restaurants = sorted(restaurant_ratings_dicts)
+    sorted_restaurants = sorted(restaurant_ratings_dicts.items())
 
-    for restaurants in sorted_restaurants:
-        print "%s is rated at %s." % (restaurants, restaurant_ratings_dicts[restaurants])
+    for restaurant, rating in sorted_restaurants:
+        print "%s is rated at %s." % (restaurant, rating)
   
     score_data.close()
-
-    return None 
 
 restaurant_ratings("scores.txt")
 
